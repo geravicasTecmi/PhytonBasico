@@ -1,13 +1,14 @@
 cardName = input("¿Cuál es el nombre de la tarjeta? ")
-cardInterest = input("¿Cuál es el porcentaje de interés en decimal? (0.xx)? ")
-cardDebt = input("¿Cuál es la deuda? (Sólo números) ")
-cardPay = input("¿Cuál es el pago a realizar? ")
-cardNewCharges = input("¿Cuáles son los nuevos cargos? ")
+cardInterest = float(input("¿Cuál es el porcentaje de interés en decimal? (0.xx)? "))
+cardDebt = int(input("¿Cuál es la deuda? (Sólo números) "))
 
-cardInterest = float(cardInterest)
-cardDebt = int(cardDebt)
-cardPay = int(cardPay)
-cardNewCharges = int(cardNewCharges)
+while True:
+    cardPay = int(input("¿Cuál es el pago a realizar? "))
+    if cardPay>cardDebt:
+        print("ERROR. No se puede pagar más que la deuda actual. Inténtalo de nuevo")
+    else:
+        break
+cardNewCharges = int(input("¿Cuáles son los nuevos cargos? "))
 
 interesMensual = cardInterest/12
 deudaRecalculada = (cardDebt-cardPay)*(1+interesMensual)
